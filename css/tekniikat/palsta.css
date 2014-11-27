@@ -1,0 +1,6 @@
+h1 { text-decoration:underline; }
+
+p {
+	-webkit-column-count: 2;
+	-webkit-column-rule: 1px solid black;
+}	

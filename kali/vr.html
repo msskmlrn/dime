@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>VR</title>
+	</head>
+	<body>
+		<div id="eka">
+			<h1>Lippukauppa</h1>
+			<h2>Osta lippu</h2>	
+			<form>
+				<input type="checkbox"  />Meno-paluu<br />
+				<input type="text" name="Mistä" value="Mistä" /> 
+				<input type="text" name="Mihin" value="Mihin" />
+				<input type="text" name="Päivämäärä" value="Kellonaika & Päivämäärä" /> 
+				<input type="text" name="Kellonaika" value="Kellonaika & Päivämäärä" />
+			</form>
+		</div>
+		
+		<div id="toka">
+			<h2>Valitse alennukset ja maksutapa</h2>
+			<div id="wrap">
+				<div>
+					<h4>Alennukset</h4>
+					<input type="checkbox"  />Opiskelija<br />
+					<input type="checkbox"  />Eläkeläinen<br />
+					<input type="checkbox"  />Lapsi<br />
+				</div>
+				<div>
+					<h4>Maksutapa</h4>
+					<input type="checkbox" />E-maksu<br />
+					<input type="checkbox" />Maksu noudettaessa<br />
+					<input type="checkbox" />Tilisiirto<br />
+				</div>
+			</div>	
+		</div>
+		
+		<div id="kolmas">
+			<h2>Syötä toimitustiedot</h2>
+			<p>Nimi: <input type=text placeholder="Etunimi, Sukunimi" id="name" required></p>
+			<p>Osoite: <input type=address placeholder="Katu, postinumero, kaupunki" required></p>
+			<p>E-mail: <input type=email placeholder="user@cs.helsinki.fi" required></p>
+			<p>Puhelin muodossa: <input type=tel pattern="\+[\d]{3}\-[\d]{2}-[\d]{4,}" placeholder="+nnn nn nnnn.."></p>
+		</div>
+		
+		<a href="">Osta</a>
+	</body>
+
+</html>

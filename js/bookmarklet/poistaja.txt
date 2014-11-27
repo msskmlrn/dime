@@ -1,0 +1,8 @@
+javascript: window.addEventListener("click", function(e) {
+	e.preventDefault();
+	if (e.target.nodeName == "BODY") {
+		return;
+	}	
+	var parent = e.target.parentElement;
+	parent.removeChild(e.target);
+});

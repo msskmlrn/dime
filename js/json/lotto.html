@@ -1,0 +1,28 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>lotto</title>
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+		
+		<script type="text/javascript">
+			window.addEventListener("load", sivuLadattu);
+			
+			function sivuLadattu() {
+				$.getJSON("http://paksula.users.cs.helsinki.fi/dime/lotto.php?callback=?", numerot);
+			}
+			
+			function numerot(json) {
+				var elem = $('<p>Oikeat lottonumerot ovat: ' + json + '</p>');
+				$('body').append(elem);
+			}
+			
+		</script>
+	</head>
+	
+	<body>
+	</body>
+	
+</html>	

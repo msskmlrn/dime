@@ -1,0 +1,12 @@
+html {
+	background-color: lightgray;
+}
+
+#content {position:absolute; top:0; bottom:0; left:0; right:0;
+			margin:auto; height:240px; width:50%;}
+
+h1 { 
+	border-bottom-style: solid;
+	border-bottom-width: 1px; 
+	border-bottom-color: gray;
+}

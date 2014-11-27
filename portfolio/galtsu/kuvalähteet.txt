@@ -1,0 +1,7 @@
+robot1 saatu osoitteesta http://www.flickr.com/photos/96khz/3127953038/sizes/s/in/photostream/
+
+robot2 saatu osoitteesta http://www.flickr.com/photos/r80o/39304743/sizes/s/in/photostream/
+
+robot3 saatu osoitteesta http://www.flickr.com/photos/squirmelia/3291873831/sizes/s/in/photostream/
+
+robot4 saatu osoitteesta http://www.flickr.com/photos/peebot/2972526369/sizes/s/in/photostream/

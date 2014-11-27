@@ -1,0 +1,15 @@
+javascript:(function(){
+	var a = document.body.style["margin-right"];
+	
+	if (a == null){
+  		 document.body.style["margin-right"] = "10%";
+	} 
+	else {
+   		a = parseInt(a) + 10;
+   		if (a >= 100) {
+   			a = "0%";
+   		}	
+  		document.body.style["margin-right"] = a + "%";
+	}
+	
+})();

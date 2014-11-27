@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<script type="text/javascript">
+			window.addEventListener("load", checkStorage);
+			data = "data";
+			
+			function checkStorage() {
+				var temp = localStorage.getItem(data);
+				if (temp != null) {
+					document.querySelector("textarea").value = temp;
+					document.querySelector("span").textContent = temp.length;
+				}
+			}
+			
+			function updateCharacters() {
+				var chars = document.querySelector("textarea").value;
+				localStorage.setItem(data, chars);
+				document.querySelector("span").textContent = chars.length;
+			}
+			
+		</script>
+		<meta charset="UTF-8" />
+		<title>Tekstieditori</title>
+	</head>
+	
+	<body>
+		<textarea rows="20" cols="80" onkeyup="updateCharacters()"></textarea>
+		<p>Merkkejä: <span id="merkit">0</span></p>
+	</body>
+</html>

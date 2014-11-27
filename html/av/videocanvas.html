@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <title>HTML5</title>
+	    <script type="text/javascript">
+	    	var video;
+	    	var canvas;
+			
+			window.addEventListener("load", sivuLadattu);
+			
+			function sivuLadattu() {
+				video = document.querySelector('video');
+				canvas = document.querySelector('canvas').getContext("2d");
+
+				video.addEventListener("timeupdate", paivitaCanvas);
+				document.querySelector('#toista').addEventListener("click", toista);
+			}
+			
+			function paivitaCanvas() {
+				canvas.drawImage(video, 0, 0);
+			}
+			
+			function toista() {
+				video.play();
+			}
+			
+	    </script>
+	    
+	    <style>
+			video { 
+				display: none; 
+			}
+			button { 
+				float: left 
+			}
+		</style>
+	    
+	</head>
+	
+	<body>
+		<button id="toista">Toista video</button>
+
+		<canvas id="canvas" width="1280" height="720"></canvas>  
+		<video id="video" style="diplay: none">
+        	<source src='video.ogv' type='video/ogg; codecs="theora, vorbis"'/>
+        	<source src='video.mp4' type='video/mp4; codecs="avc1.4D401E, mp4a.40.2"'/>
+        	<p>This is fallback content</p>
+		</video>
+	</body>
+</html>
+

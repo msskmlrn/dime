@@ -1,0 +1,26 @@
+h1 { text-decoration:underline; }
+
+.robot1 { float: right; }
+
+.robot2 { float: left; }
+
+nav {
+	background: pink;
+	float: left;
+	width: 15%;
+}
+
+footer {
+	background: yellow;
+	clear: both;
+}
+
+article {
+	background: grey;
+	width: 85%;
+	float: right;
+}
+
+header {
+	background: orange;
+}

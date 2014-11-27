@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Canvas</title>
+		<script type="text/javascript">
+			var elementti;
+			var konteksti;
+			
+			function aloita(){
+				elementti = document.getElementById("elementti");
+				konteksti = elementti.getContext("2d");
+				
+			}
+			
+			function piirra(){
+				var x = Math.floor(Math.random() * 201);
+				var y = Math.floor(Math.random() * 201);
+				
+				konteksti.fillStyle = "rgb(255,0,0)";
+				konteksti.fillRect(x, y, 1, 1);
+			};
+
+			
+			window.addEventListener("load", aloita);
+			window.setInterval(piirra, 10);
+		</script>
+
+	</head>
+
+	<body>
+		<canvas id="elementti" width="200" height="200">Selaimellasi on ongelmia Canvas-elementtien kanssa</canvas>
+	</body>
+
+</html>
+

@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Canvas</title>
+		<script type="text/javascript">
+			koko = 0;
+			
+			function pituus(){
+				koko = window.prompt("Neliön sivun pituus: ");
+				window.parseInt(koko);
+				piirra();
+			}
+			
+			function piirra(){
+				var elementti = document.getElementById("elementti");
+				elementti.addEventListener("click", ponnauta);
+				var konteksti = elementti.getContext("2d");
+				konteksti.fillText("Pinta-ala: " + (koko*koko) + "px", 10, 10);		
+				konteksti.fillStyle = "rgb(0,0,255)";
+				konteksti.fillRect(0,25,koko,koko);
+			}
+			
+			function ponnauta(){
+				alert("Neliön pinta-ala on: " + (koko*koko) + "px");
+			}
+			
+			window.addEventListener("load", pituus);
+		</script>
+
+	</head>
+
+	<body>
+		<canvas id="elementti" width="200" height="200">Selaimellasi on ongelmia Canvas-elementtien kanssa</canvas>
+	</body>
+
+</html>
+

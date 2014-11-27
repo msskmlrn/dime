@@ -1,0 +1,7 @@
+:target { background-color: yellow; }
+
+#grape:target { color: red; }
+
+#aubergine:target { color: green; }
+
+#mustard:target { color: blue; }

@@ -1,0 +1,24 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>json</title>
+
+		<script type="text/javascript">
+			function kasittele(json){
+				for (var i = 0; i < json.records.length; i++){
+					console.log(json.records[i].author);
+				}
+			}
+		</script>
+		
+		<script type="text/javascript" src="http://data.kirjastot.fi/search/author.json?query=kaipiainen&callback=kasittele">
+		</script>
+		
+	</head>
+	
+	<body>
+
+	</body>
+	
+</html>	

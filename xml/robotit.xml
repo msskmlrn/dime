@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="robotit-taulukossa.xsl" type="text/xsl" ?>
+<robotit>
+        <robotti>
+                <nimi>Mega Man</nimi>
+                <syntymä>1987</syntymä>
+                <paino yksikkö="kg">200</paino>
+                <linkki uri="http://en.wikipedia.org/wiki/Mega_Man" />
+        </robotti>
+        <robotti>
+                <nimi>Megatron</nimi>
+                <syntymä>1984</syntymä>
+                <paino yksikkö="tonni">8.6</paino>
+                <linkki uri="http://en.wikipedia.org/wiki/Megatron_(Transformers)" />
+        </robotti>
+</robotit>

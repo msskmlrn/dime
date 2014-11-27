@@ -1,0 +1,41 @@
+<!Doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Canvas</title>
+		<script type="text/javascript"> 
+			var elementti;
+			var konteksti;
+			window.setInterval(siirra, (1000/60));
+			window.addEventListener("load", sivuLadattu);
+			
+			function sivuLadattu() {
+				canvas = document.getElementById("canvas");
+				konteksti = canvas.getContext("2d");
+				konteksti.fillStyle = "#FFFFFF";
+				canvas.addEventListener("mousemove", piirraLunta);	
+			}
+			
+			function piirraLunta(e) {
+				konteksti.fillRect(e.offsetX, e.offsetY, 2, 2);
+			}
+			
+			function siirra(e) {
+				var data = konteksti.getImageData(0,0,640,480);
+				konteksti.putImageData(data, 0, 1);
+			}
+		</script>
+		
+		<style>
+			canvas { 
+				background-color: black; 
+			}
+		</style>
+
+	</head>
+	
+	<body>
+		<canvas id="canvas" width="640px" height="480px">Selaimellasi on ongelmia Canvas-elementtien kanssa</canvas>
+	</body>
+</html>	

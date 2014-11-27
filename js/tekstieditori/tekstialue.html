@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<script type="text/javascript">
+			function updateCharacters() {
+				var chars = document.querySelector("textarea").value.length;
+				document.querySelector("span").textContent = chars;
+			}
+		</script>
+		<meta charset="UTF-8" />
+		<title>Tekstieditori</title>
+	</head>
+	
+	<body>
+		<textarea rows="20" cols="80" onkeyup="updateCharacters()"></textarea>
+		<p>Merkkejä: <span id="merkit">0</span></p>
+	</body>
+</html>

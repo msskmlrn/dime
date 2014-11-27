@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Canvas</title>
+		<script type="text/javascript">
+			var elementti;
+			var konteksti;
+			
+			function aloita(){
+				elementti = document.getElementById("elementti");
+				konteksti = elementti.getContext("2d");
+				elementti.addEventListener("click", klikattu);
+			}
+			
+			function piirra(){
+				var x = Math.floor(Math.random() * 201);
+				var y = Math.floor(Math.random() * 201);
+				
+				konteksti.fillStyle = "rgb(255,0,0)";
+				konteksti.fillRect(x, y, 1, 1);
+			};
+			
+			function klikattu(e) {
+				console.log(e);
+				konteksti.fillStyle = "rgb(0, 0, 255)";
+				konteksti.fillRect(e.clientX, e.clientY, 7, 7);
+			}
+			
+			function kuvaksi(){
+				var canvas = document.getElementById("elementti");  
+				var url = canvas.toDataURL();  
+				var newImg = document.createElement("img");  
+				newImg.src = url;  
+				document.body.appendChild(newImg);
+			}
+			
+			function svgJuttu() {
+				var svg = document.querySelector("svg");
+				var canvas = document.querySelector("canvas");  
+				var imageElementti = document.createElementNS("http://www.w3.org/2000/svg", "image");
+				imageElementti.setAttribute("x", "0");
+				imageElementti.setAttribute("y", "0");
+				imageElementti.setAttribute("width", "100");
+				imageElementti.setAttribute("height", "100");  
+				imageElementti.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", canvas.toDataURL());  
+				svg.appendChild(imageElementti);
+			}
+			
+			window.addEventListener("load", aloita);
+			window.setInterval(piirra, 10);
+		</script>
+
+	</head>
+
+	<body>
+		<canvas id="elementti" width="200" height="200">Selaimellasi on ongelmia Canvas-elementtien kanssa</canvas>
+		<p><a href="javascript:kuvaksi()">Muunna canvas kuvaksi.</a></p>
+		<p><a href="javascript:svgJuttu()">Svg-hommeli.</a></p>
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="300">	
+	</body>
+
+</html>
+

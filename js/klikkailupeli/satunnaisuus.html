@@ -1,0 +1,47 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>js</title>
+
+		<script type="text/javascript">
+			pisteet = 0;
+			
+			function sivuLadattu(){
+				var piiloutuvat = document.querySelectorAll(".piiloutuva");
+				console.log("piiloutuvat: " + piiloutuvat);
+				for (var i=0;i<piiloutuvat.length;i++) {
+					piiloutuvat[i].addEventListener("click", piiloutuvaaKlikattu);
+				};
+			};
+			
+			function piiloutuvaaKlikattu(e) {
+				var pisteElementti = document.querySelector("#pisteet");
+				pisteet++;
+				pisteElementti.textContent = pisteet;
+				console.log("tapahtuma: " + e);
+				console.log("tapahtuman kohde: " + e.target);
+				e.target.style.display = "none";
+			};
+			
+			function piilotaKaikkiJaJataYksi() {
+				var piiloutuvat = document.querySelectorAll(".piiloutuva");
+				for (var i=0;i<piiloutuvat.length;i++) {
+					piiloutuvat[i].style.display = "none";
+				};
+				var satunnainen = Math.floor(Math.random() * piiloutuvat.length);
+				piiloutuvat[satunnainen].style.display="block";
+			}
+			
+			window.addEventListener("load", sivuLadattu);
+		</script>
+	</head>
+	
+	<body>
+		<p>Pisteet: <span id="pisteet">0</span></p>
+		<h1 class="piiloutuva">Otsikko</h1>
+		<h2 class="piiloutuva">Pienempi otsikko</h2>
+		<p class="piiloutuva">Tekstikappale</p>
+	</body>
+	
+</html>	

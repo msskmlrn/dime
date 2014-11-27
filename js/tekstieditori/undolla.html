@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<script type="text/javascript">
+			window.addEventListener("load", checkStorage);
+			data = "data";
+			var stack = [];
+			
+			function checkStorage() {
+				var temp = localStorage.getItem("data");
+		
+				if (temp != null) {
+					document.querySelector("textarea").value = temp;
+					document.querySelector("span").textContent = temp.length;
+				}
+				
+				if (localStorage.getItem("stack") == undefined){
+					localStorage.setItem("stack", JSON.stringify(stack));
+				}
+				
+				document.querySelector("textarea").value = localStorage.getItem("teksti");
+				var taulu = JSON.parse(localStorage.getItem("stack"));
+				
+				for (var i = 0; i < taulu.length; i++){
+					stack.push(taulu[i]);
+				}
+				
+				updateCharacters();
+			}
+			
+			function updateCharacters() {			
+				var text = document.querySelector("textarea");
+				localStorage.setItem("teksti", text.value);
+				stack.push(text.value);
+				localStorage.setItem("stack", JSON.stringify(stack));
+				document.querySelector("#merkit").textContent = text.value.length;
+			}
+			
+			function undo(){
+				if (stack.length <= 1) {
+					return;
+				}	
+				
+				stack.pop();
+				var text = document.querySelector("textarea");
+				text.value = stack.pop();
+				updateCharacters();
+			}
+		</script>
+		<meta charset="UTF-8" />
+		<title>Tekstieditori</title>
+	</head>
+	
+	<body>
+		<textarea rows="20" cols="80" onkeyup="updateCharacters()"></textarea>
+		<p>Merkkejä: <span id="merkit">0</span></p>
+		<button id="undo" style="float: left;" onmousedown="undo()">Undo</button>
+	</body>
+</html>

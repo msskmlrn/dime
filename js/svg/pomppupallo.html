@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>SVG</title>
+		<script type="text/javascript">
+			var pallot;
+			var leveys;
+			var korkeus;
+			
+			window.addEventListener("load", sivuLadattu);
+			window.setInterval(palloLiikkuu, 10);
+			
+			function sivuLadattu() {
+				leveys = parseInt(document.querySelector("svg").getAttribute("width"));
+				korkeus = parseInt(document.querySelector("svg").getAttribute("height"));
+				
+				luoPallo(30);
+				
+				pallot = document.querySelectorAll("circle");
+				
+				for (var i = 0; i < pallot.length; i++) {
+					pallot[i].setAttribute("suuntaX", 0);
+					pallot[i].setAttribute("suuntaY", 1);
+				}
+			}
+			
+			function luoPallo(montako) {
+				for (var i = 0; i < montako; i++) {
+					var pallo = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+					pallo.setAttribute("r", 10);
+					pallo.setAttribute("cx", (Math.floor(Math.random()*800)));
+					pallo.setAttribute("cy", (Math.floor(Math.random()*800)));
+					document.body.querySelector("svg").appendChild(pallo);
+				}
+			}
+			
+			function palloLiikkuu() {
+				for (var i = 0; i < pallot.length; i++) {
+					var pallo = pallot[i];
+					
+					var temp1 = parseInt(pallo.getAttribute("cx"));
+					var temp2 = parseInt(pallo.getAttribute("suuntaX"));
+					var uusiX = temp1 + temp2;
+					
+					temp1 = parseInt(pallo.getAttribute("cy"));
+					temp2 = parseInt(pallo.getAttribute("suuntaY"));
+					var uusiY = temp1 + temp2;
+					
+					pallo.setAttribute("cx", uusiX);			
+					pallo.setAttribute("cy", uusiY);
+					
+					if (uusiY >= korkeus || uusiY <= 0 ) {
+						var temp1 = pallo.getAttribute("suuntaY") * -1;
+						pallo.setAttribute("suuntaY", temp1);
+						pallo.setAttribute("suuntaX", (Math.floor(Math.random() * 5)));
+					}
+					else if (uusiX >= leveys || uusiX <= 0 ) {
+						var temp1 = pallo.getAttribute("suuntaX") * -1;
+						pallo.setAttribute("suuntaX", temp1);
+						pallo.setAttribute("suuntaY", (Math.floor(Math.random() * 5)));	
+					}
+						
+				}
+			}
+		</script>
+		
+		<style>
+			circle {
+				stroke: black;
+				fill: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800">
+		</svg>
+	</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <title>HTML5</title>
+	    
+	    <script type="text/javascript">
+			function updateCharacters() {
+				var chars = 160 - document.querySelector("textarea").value.length;
+				document.querySelector("span").textContent = chars;
+			}
+			function rangeChanged() {
+				var value = document.getElementById('range').value;
+				console.log(value);
+			}
+		</script>
+		<style>
+			:invalid {
+				border: solid thin red;
+			}
+		
+		</style>
+	</head>
+	
+	<body>
+		<p>Nimesi: <input autofocus type=text placeholder="Etunimi, Sukunimi" id="name" required></p>
+		<p>E-mail: <input type=email placeholder="user@cs.helsinki.fi" required></p>
+		<p>Kuvaus (maksimi 160 merkkiä, jäljellä: <span id="merkit">160</span>)</p>
+		<textarea rows="20" cols="80" onkeyup="updateCharacters()" placeholder="abba"></textarea>
+		<p>Puhelin muodossa: <input type=tel pattern="\+[\d]{3}\-[\d]{2}-[\d]{4,}" placeholder="+nnn nn nnnn.."></p>
+		<p>Kotisivun osoite: <input type=url></p>
+		<p>Valitse väliltä 3-9, jokainen kasvatus (step) 3: <input type=number max=9 min=3 step=3></p>
+		<p>Valitse väliltä 20-80: <input type=range min=20 max=80 onchange="rangeChanged()" id="range"></p>
+		<input type="submit" value="Submit" />
+	</body>
+</html>
+

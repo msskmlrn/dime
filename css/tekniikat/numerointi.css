@@ -1,0 +1,18 @@
+body { 
+	counter-reset:section; 
+	counter-reset:subsection;
+}
+
+body > section {
+	counter-reset:subsection;
+	counter-increment:section;
+}
+
+body > section > h1:before {
+	content:counter(section) " ";
+}
+
+section > section > h1:before {
+	counter-increment:subsection;
+	content:counter(section) "." counter(subsection) " ";
+}

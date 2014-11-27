@@ -1,0 +1,42 @@
+body { 
+	background-color: #eee; 
+}
+
+.robot1 { float: right; }
+
+.robot2 { float: left; }
+
+nav {
+	float: left;
+	width: 10%;
+	background: white;
+	margin: 5px;
+	padding:5px
+}
+
+footer {
+	clear: both;
+}
+
+article {
+	width: 85%;
+	float: right;
+	background: white;
+	margin: 10px;
+	padding: 10px
+}
+
+header {
+}
+
+header > h1 { 
+	border-bottom: thin solid silver;
+}
+
+nav > h1 {
+	font-size: 20px;
+}
+
+nav > ul {
+	list-style-type: none;
+}

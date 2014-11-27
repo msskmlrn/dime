@@ -1,0 +1,41 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>jquery</title>
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+		
+		<script type="text/javascript">
+			window.addEventListener("load", sivuLadattu);
+			
+			function sivuLadattu() {
+				var kaikki = document.querySelectorAll("*");
+				for (var i = 0; i < kaikki.length; i++) {
+					kaikki[i].addEventListener("click", klikattu);
+				}
+			}
+			function klikattu(e) {
+				if (e.target.nodeName == "BODY") {
+					 alert('Älä töki bodyä, vaan elementtejä!');
+ 					return;
+				}
+				var parent = e.target.parentElement;
+				if (e.target.parentElement == null) {
+					return;
+				}	
+				parent.removeChild(e.target);
+			}
+			
+		</script>
+	</head>
+	
+	<body>
+		<h1>Otsikko</h1>
+		<h2>Toinen otsikko</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus mattis auctor. Aliquam vel augue luctus est egestas iaculis. In metus dolor, imperdiet in adipiscing et, mollis at elit. Curabitur ut justo ligula, sed varius libero. Phasellus eu urna nibh, suscipit viverra ante. Sed et adipiscing sapien. Nam eget elementum urna. Integer placerat ante vitae neque consectetur consequat. Sed malesuada dolor ut nisi vehicula aliquam. Ut sem magna, sodales faucibus accumsan ac, feugiat vitae nisi. Mauris urna dui, iaculis eget rhoncus id, tristique accumsan nulla. Cras commodo tortor placerat diam commodo sit amet congue magna auctor. Cras vitae urna leo, a cursus libero. Aliquam placerat turpis non diam sollicitudin eget interdum magna gravida. Integer consequat iaculis neque quis molestie. Quisque tempor dignissim leo eget pellentesque.</p>
+		<p>Vestibulum adipiscing nibh vitae odio vehicula porta. Etiam ut urna nec ante blandit luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique orci rhoncus turpis ullamcorper commodo nec et lectus. Maecenas a convallis tellus. Integer eu sapien arcu. Quisque a tortor et ligula imperdiet vestibulum. Quisque imperdiet, massa eu venenatis tristique, enim dui pretium turpis, sit amet iaculis augue sem a nunc. Phasellus vitae arcu sed mi condimentum facilisis. Aliquam nisi odio, posuere posuere interdum non, posuere id nisi. Nulla ullamcorper mattis erat sit amet vestibulum. Quisque sollicitudin, mauris id vulputate auctor, eros purus iaculis turpis, vel viverra metus tellus eget lacus. Ut accumsan neque justo, vitae iaculis nunc. Donec congue vulputate feugiat. Ut urna purus, gravida bibendum vehicula et, semper id enim. Sed arcu risus, laoreet vitae ornare rutrum, aliquam eget enim.</p>
+	</body>
+	
+</html>	

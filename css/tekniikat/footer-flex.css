@@ -1,0 +1,21 @@
+html {
+	height: 100%;
+}
+
+body { 
+	height: 100%;
+	background-color: lightgrey;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+
+article { webkit-box-flex: 1; }
+
+footer { 
+	
+	background-color: white;
+}
+
+footer p {
+	-webkit-box-pack: end 
+}

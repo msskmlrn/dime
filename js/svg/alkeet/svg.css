@@ -1,0 +1,12 @@
+rect {
+	fill: blue;
+}
+
+circle {
+	fill: red;
+}
+
+svg {
+	stroke-width: 2px;
+	stroke: black;
+}

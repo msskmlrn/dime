@@ -1,0 +1,56 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>js</title>
+
+		<script type="text/javascript">
+			pisteet = 0;
+			
+			function sivuLadattu(){
+				var peliaika = window.prompt("Montako sekuntia pelataan?");
+				window.parseInt(peliaika);
+				window.setTimeout(gameover, peliaika * 1000);
+				var piiloutuvat = document.querySelectorAll(".piiloutuva");
+				console.log("piiloutuvat: " + piiloutuvat);
+				for (var i=0;i<piiloutuvat.length;i++) {
+					piiloutuvat[i].addEventListener("click", piiloutuvaaKlikattu);
+				};
+			};
+			
+			function piiloutuvaaKlikattu(e) {
+				var pisteElementti = document.querySelector("#pisteet");
+				pisteet++;
+				pisteElementti.textContent = pisteet;
+				console.log("tapahtuma: " + e);
+				console.log("tapahtuman kohde: " + e.target);
+				e.target.style.color="red";
+			};
+			
+			function piilotaKaikkiJaJataYksi() {
+				var piiloutuvat = document.querySelectorAll(".piiloutuva");
+				for (var i=0;i<piiloutuvat.length;i++) {
+					piiloutuvat[i].style.visibility = "hidden";
+					piiloutuvat[i].style.color = "black";
+				};
+				var satunnainen = Math.floor(Math.random() * piiloutuvat.length);
+				piiloutuvat[satunnainen].style.visibility="visible";
+			}
+			
+			function gameover() {
+				alert("Game over");
+				window.location.reload();   // ladataan sivu uudestaan, jolloin "peli alkaa alusta"
+}
+			window.addEventListener("load", sivuLadattu);
+			window.setInterval(piilotaKaikkiJaJataYksi, 500);
+		</script>
+	</head>
+	
+	<body>
+		<p>Pisteet: <span id="pisteet">0</span></p>
+		<h1 class="piiloutuva">Otsikko</h1>
+		<h2 class="piiloutuva">Pienempi otsikko</h2>
+		<p class="piiloutuva">Tekstikappale</p>
+	</body>
+	
+</html>	
